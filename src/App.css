@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(45deg,#47de44,#fdfd49);
+  transition: background-color 0.3s ease;
+}
+
+.light {
+  --bg: white;
+  --fg: black;
+}
+
+.dark {
+  --bg: #1c1d1d;
+  --fg: white;
+}
+
+.theme-changer {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.theme-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--fg);
+}
+
+.container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
 }
 
-.App-link {
-  color: #61dafb;
+.calculator {
+  width: 320px;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: var(--bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.display {
+  margin-bottom: 20px; /* Add margin bottom for spacing */
+}
+
+.ans-frame {
+  font-size: 48px; /* Increase font size for the answer */
+  margin-bottom: 10px; /* Add margin bottom for spacing */
+}
+
+.que-frame {
+  margin-bottom: 10px; /* Add margin bottom for spacing */
+}
+
+/* .history {
+  width: 320px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  overflow-y: auto;
+} */
+
+.history {
+  width: 320px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  overflow-y: auto; /* Make the history section scrollable */
+  height: 300px; /* Set a fixed height */
+}
+
+
+.history h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.history-content {
+  padding: 5px;
+}
+
+.history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history li {
+  margin-bottom: 5px;
+}
+
+.history .expression {
+  font-weight: bold;
+}
+
+.history .result {
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.button {
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  color: var(--fg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #d4d4d4;
+}
+
+.operator {
+  background-color: #ff8c00;
+}
+
+.clear {
+  background-color: #dc3545;
+}
+
+.equal {
+  background-color: #007bff;
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+.equal {
+  grid-column: span 2;
+}
+
+.highlight-frame {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.colors {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.active-color {
+  border-color: var(--highlight);
+}
+
+.toggle-history{
+  margin-top: 20px;
+  padding: 7px;
+  border-radius: 15px;
+  font-weight: bold;
 }
